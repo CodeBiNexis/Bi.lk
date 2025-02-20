@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    
+      <link rel="icon" href="/images/logo.png" type="image/x-icon">
+      <link rel="icon" href="/images/logo.png" sizes="32x32" type="image/png">
+      <link rel="apple-touch-icon" href="/images/logo.png">
+      <link rel="manifest" href="/images/manifest.json">
+    
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home page</title>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://bi.lk/contact">
+    
+    <!-- Additional Meta Tags -->
+    <meta name="copyright" content="© 2022-2024 BI Nexis (PVT) LTD. All rights reserved.">
+    <meta name="geo.region" content="LK">
+    <meta name="geo.placename" content="Colombo">
+    <meta name="geo.position" content="6.916667;79.833333">
+    <meta name="ICBM" content="6.916667, 79.833333">
+    
+    <!-- Additional Open Graph Tags -->
+    <meta property="og:site_name" content="BI Nexis">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:street-address" content="52 Srimath Anagarika Dharmapala Mawatha">
+    <meta property="og:locality" content="Colombo">
+    <meta property="og:postal-code" content="00300">
+    <meta property="og:country-name" content="Sri Lanka">
+    
+    <!-- Additional Twitter Tags -->
+    <meta name="twitter:site" content="@BINexis">
+    <meta name="twitter:creator" content="@YasasVaruthesh">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="https://bi.lk/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://bi.lk/apple-touch-icon.png">
+    
+    <!-- GDPR Banner Styles -->
+    <style>
+        .gdpr-banner {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border: 2px dashed #c620e4;
+            border-radius: 15px;
+            padding: 15px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 80%;
+            max-width: 500px;
+            z-index: 1000;
+        }
+        .gdpr-banner p {
+            color: #e4e4fd;
+            font-size: 14px;
+            margin: 0 0 10px 0;
+        }
+        .gdpr-btn {
+            margin: 10px;
+            padding: 10px 20px;
+            border: 2px dashed #c620e4;
+            border-radius: 10px 0px 10px 0px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: opacity 0.3s ease;
+        }
+        .gdpr-btn:hover {
+            opacity: 0.9;
+        }
+        .accept-btn {
+            background-color: #cdbfe44a;
+            color: white;
+        }
+        .decline-btn {
+            background-color: #c8bfd838;
+            color: #f2f2f2;
+        }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    
+    <!-- GDPR Banner -->
+    <div class="gdpr-banner">
+        <p>We use cookies to enhance your experience. By continuing to visit this site, you agree to our use of cookies.</p>
+        <button class="gdpr-btn accept-btn" onclick="acceptCookies()">Accept</button>
+        <button class="gdpr-btn decline-btn" onclick="declineCookies()">Decline</button>
+    </div>
+
+    <script type="module" src="/src/main.tsx"></script>
+    
+    <!-- GDPR Banner Script -->
+    <script>
+        function acceptCookies() {
+            localStorage.setItem('gdpr-consent', 'accepted');
+            document.querySelector('.gdpr-banner').style.display = 'none';
+        }
+        
+        function declineCookies() {
+            localStorage.setItem('gdpr-consent', 'declined');
+            document.querySelector('.gdpr-banner').style.display = 'none';
+        }
+        
+        // Check if user has already made a choice
+        window.addEventListener('load', function() {
+            if (!localStorage.getItem('gdpr-consent')) {
+                document.querySelector('.gdpr-banner').style.display = 'block';
+            } else {
+                document.querySelector('.gdpr-banner').style.display = 'none';
+            }
+        });
+    </script>
+  </body>
+</html>
