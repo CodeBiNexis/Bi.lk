@@ -17,7 +17,7 @@ Make sure you have the following installed on your system:
    ```
 2. Navigate to the project directory:
    ```sh
-   cd Bi.lk
+   cd Bi.lk -main
    ```
 3. Install dependencies:
    ```sh
